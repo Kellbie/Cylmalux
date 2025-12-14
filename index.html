@@ -298,67 +298,85 @@
       opacity: 0.9;
     }
     
-    /* Palettes with Color Names */
+    /* Palettes with Color Names - 5 Column Layout */
     .palette-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .palette-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
       margin-top: 2rem;
+    }
+    
+    @media (max-width: 1100px) {
+      .palette-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .palette-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .palette-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .color-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .color-item:hover {
+      transform: translateY(-5px);
     }
 
     .color-box {
-      height: 110px;
-      border-radius: 16px;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-
-    .color-box:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 20px 35px rgba(0,0,0,0.2);
-    }
-
-    .color-box::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
       width: 100%;
-      height: 30%;
-      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
-      border-radius: 0 0 16px 16px;
+      height: 120px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+      margin-bottom: 0.8rem;
+      border: 3px solid white;
+    }
+    
+    .color-item:hover .color-box {
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      transform: scale(1.02);
     }
 
-    .color-label {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      padding: 5px 8px;
-      border-radius: 8px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      z-index: 2;
-      text-align: center;
-      word-wrap: break-word;
+    .color-info {
+      width: 100%;
     }
 
-    .color-code {
-      display: block;
-      font-size: 0.65rem;
+    .color-name {
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-top: 2px;
-      color: #FFD166;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+      line-height: 1.3;
+    }
+    
+    .color-code {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--neutral);
+      background: #f0f0f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
     }
 
     /* About & Contact */
@@ -589,12 +607,8 @@
         left: 20px;
       }
       
-      .palette-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-      }
-      
       .color-box {
-        height: 90px;
+        height: 100px;
       }
       
       .info-grid {
@@ -618,6 +632,11 @@
     @media (max-width: 480px) {
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .palette-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
       
       .hero {
@@ -972,15 +991,20 @@
     
     colorArray.forEach(colorObj => {
       const div = document.createElement('div');
-      div.className = 'color-box';
-      div.style.background = colorObj.color;
+      div.className = 'color-item';
       
       div.innerHTML = `
-        <span class="color-label">
-          ${colorObj.name}
-          <span class="color-code">${colorObj.code}</span>
-        </span>
+        <div class="color-box" style="background-color: ${colorObj.color};"></div>
+        <div class="color-info">
+          <div class="color-name">${colorObj.name}</div>
+          <div class="color-code">${colorObj.code}</div>
+        </div>
       `;
+      
+      // Add click event to show color details
+      div.addEventListener('click', function() {
+        alert(`Color: ${colorObj.name}\nCode: ${colorObj.code}`);
+      });
       
       element.appendChild(div);
     });
@@ -1001,15 +1025,6 @@
   
   // Observe elements for animation
   document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-  
-  // Add click event to color boxes to show color details
-  document.querySelectorAll('.color-box').forEach(box => {
-    box.addEventListener('click', function() {
-      const colorName = this.querySelector('.color-label').textContent.split('\n')[0];
-      const colorCode = this.querySelector('.color-code').textContent;
-      alert(`Color: ${colorName}\nCode: ${colorCode}`);
-    });
-  });
   
   // Gallery lightbox functionality
   const lightbox = document.getElementById('lightbox');
