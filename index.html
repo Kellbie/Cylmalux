@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cylamux Paints - Premium Color Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #6C63FF;
+      --secondary: #FF6584;
+      --accent: #36D1DC;
+      --dark: #1A1A2E;
+      --light: #F8F9FA;
+      --neutral: #5A5A5A;
+      --success: #25D366;
+      --warning: #FFB74D;
+      --info: #4FC3F7;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Header/Hero Section with Background Image */
+    .hero {
+      min-height: 100vh;
+      background-image: url('back.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 3rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dark overlay for better text readability */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+      z-index: 1;
+    }
+
+    /* Company Logo in Header */
+    .company-logo {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      z-index: 3;
+      max-width: 180px;
+      max-height: 80px;
+    }
+
+    .company-logo img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Colorful "PAINTS" word */
+    .colorful-word {
+      display: inline-block;
+    }
+    
+    .colorful-letter {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .paint-letter-1 { color: #FF6B6B; }
+    .paint-letter-2 { color: #4ECDC4; }
+    .paint-letter-3 { color: #FFD166; }
+    .paint-letter-4 { color: #06D6A0; }
+    .paint-letter-5 { color: #118AB2; }
+    .paint-letter-6 { color: #EF476F; }
+    
+    .colors-letter-1 { color: #FF6B6B; }
+    .colors-letter-2 { color: #4ECDC4; }
+    .colors-letter-3 { color: #FFD166; }
+    .colors-letter-4 { color: #06D6A0; }
+    .colors-letter-5 { color: #118AB2; }
+    .colors-letter-6 { color: #EF476F; }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      color: white;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 1s ease 0.3s forwards;
+      opacity: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 1.5rem;
+      padding: 1.2rem 3rem;
+      background: var(--success);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      transform: translateY(0);
+      animation: fadeInUp 1s ease 0.6s forwards;
+      opacity: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      background: #1DA851;
+    }
+
+    /* Fallback if background image doesn't load */
+    .hero {
+      background-color: #1A1A2E; /* Dark color as fallback */
+    }
+
+    /* Section Styling */
+    section {
+      padding: 6rem 5vw;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 25%;
+      width: 50%;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--neutral);
+      max-width: 700px;
+      margin: 0 auto 3.5rem;
+    }
+
+    /* Color Background Sections */
+    .section-light {
+      background-color: var(--light);
+    }
+
+    .section-primary {
+      background: linear-gradient(135deg, #f5f7ff 0%, #e6e9ff 100%);
+    }
+
+    .section-accent {
+      background: linear-gradient(135deg, #e6fffb 0%, #d1f7f4 100%);
+    }
+
+    .section-secondary {
+      background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
+    }
+
+    /* Gallery Section - 6x2 Layout */
+    .gallery-section {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .gallery-description {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--neutral);
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    
+    /* 6x2 Grid Layout */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      aspect-ratio: 1/1; /* Square images */
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 1rem 0.8rem;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+    
+    .gallery-overlay h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+    
+    .gallery-overlay p {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+    
+    /* Palettes with Color Names */
+    .palette-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .color-box {
+      height: 110px;
+      border-radius: 16px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .color-box:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+    }
+
+    .color-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+      border-radius: 0 0 16px 16px;
+    }
+
+    .color-label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 5px 8px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      z-index: 2;
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    /* About & Contact */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+    }
+
+    .card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      border-top: 5px solid var(--primary);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-icon {
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-info i {
+      color: var(--primary);
+      width: 24px;
+      margin-right: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    
+    .lightbox-img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .lightbox-close:hover {
+      background: var(--secondary);
+      transform: scale(1.1);
+    }
+    
+    .lightbox-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .lightbox-caption h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 4rem 1rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .footer-logo {
+      max-width: 180px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 5vw;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .company-logo {
+        max-width: 140px;
+        top: 20px;
+        left: 20px;
+      }
+      
+      .palette-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      }
+      
+      .color-box {
+        height: 90px;
+      }
+      
+      .info-grid {
+        gap: 2rem;
+      }
+      
+      .card {
+        padding: 2rem;
+      }
+      
+      /* Ensure hero text is readable on mobile */
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero {
+        background-attachment: scroll; /* Prevent parallax on mobile for performance */
+      }
+      
+      .company-logo {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 2rem;
+      }
+    }
+    
+    /* Parallax effect for larger screens */
+    @media (min-width: 768px) {
+      .hero {
+        background-attachment: fixed;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section with Background Image -->
+<div class="hero">
+  <!-- Company Logo -->
+  <div class="company-logo">
+    <!-- Updated logo file name -->
+    <img src="logoc.png" alt="Cylamux Paints Logo">
+  </div>
+  
+  <div class="hero-content">
+    <h1>CYMALUX 
+      <span class="colorful-word">
+        <span class="colorful-letter paint-letter-1">P</span>
+        <span class="colorful-letter paint-letter-2">A</span>
+        <span class="colorful-letter paint-letter-3">I</span>
+        <span class="colorful-letter paint-letter-4">N</span>
+        <span class="colorful-letter paint-letter-5">T</span>
+        <span class="colorful-letter paint-letter-6">S</span>
+      </span>
+    </h1>
+    <p>Transforming spaces with premium, durable colors that inspire and endure.</p>
+    <a class="btn" href="https://wa.me/2348038842997" target="_blank">
+      <i class="fab fa-whatsapp"></i> WhatsApp Us
+    </a>
+  </div>
+</div>
+
+<!-- Gallery Section -->
+<section class="section-light">
+  <h2 class="section-title">Our Gallery</h2>
+  <p class="section-subtitle">Explore our portfolio of beautifully painted homes and commercial spaces</p>
+  
+  <div class="gallery-section">
+    <div class="gallery-grid">
+      <!-- Row 1 - 6 images -->
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Modern living room">
+        <div class="gallery-overlay">
+          <h3>Modern Living Room</h3>
+          <p>Accent wall in deep blue</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Contemporary kitchen">
+        <div class="gallery-overlay">
+          <h3>Contemporary Kitchen</h3>
+          <p>Soft neutral palette</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Exterior house">
+        <div class="gallery-overlay">
+          <h3>Exterior Home</h3>
+          <p>Complete exterior repaint</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Colorful bedroom">
+        <div class="gallery-overlay">
+          <h3>Vibrant Bedroom</h3>
+          <p>Two-tone wall design</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Office space">
+        <div class="gallery-overlay">
+          <h3>Corporate Office</h3>
+          <p>Professional color scheme</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bathroom">
+        <div class="gallery-overlay">
+          <h3>Bathroom Refresh</h3>
+          <p>Tile and wall painting</p>
+        </div>
+      </div>
+      
+      <!-- Row 2 - 6 images -->
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dining area">
+        <div class="gallery-overlay">
+          <h3>Elegant Dining Area</h3>
+          <p>Warm color palette</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Children's room">
+        <div class="gallery-overlay">
+          <h3>Kids Room</h3>
+          <p>Bright, cheerful colors</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Commercial building">
+        <div class="gallery-overlay">
+          <h3>Commercial Building</h3>
+          <p>Exterior coating</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Study room">
+        <div class="gallery-overlay">
+          <h3>Study Room</h3>
+          <p>Focused color scheme</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Modern apartment">
+        <div class="gallery-overlay">
+          <h3>Modern Apartment</h3>
+          <p>Open concept design</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1549517045-bc93de075e53?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Feature wall">
+        <div class="gallery-overlay">
+          <h3>Feature Wall</h3>
+          <p>Custom geometric pattern</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Classic Colors Section -->
+<section class="section-primary">
+  <h2 class="section-title">42+ Classic 
+    <span class="colorful-word">
+      <span class="colorful-letter colors-letter-1">C</span>
+      <span class="colorful-letter colors-letter-2">O</span>
+      <span class="colorful-letter colors-letter-3">L</span>
+      <span class="colorful-letter colors-letter-4">O</span>
+      <span class="colorful-letter colors-letter-5">R</span>
+      <span class="colorful-letter colors-letter-6">S</span>
+    </span>
+  </h2>
+  <p class="section-subtitle">Our signature collection of timeless hues for every interior</p>
+  
+  <div class="palette-container">
+    <div class="palette-grid animate-on-scroll" id="classic"></div>
+  </div>
+</section>
+
+<!-- Brick Colors Section -->
+<section class="section-accent">
+  <h2 class="section-title">24 Brick & Earth Tones</h2>
+  <p class="section-subtitle">Natural and earthy colors perfect for exteriors and accent walls</p>
+  
+  <div class="palette-container">
+    <div class="palette-grid animate-on-scroll" id="brick"></div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="section-secondary">
+  <h2 class="section-title">About Cymalux</h2>
+  <p class="section-subtitle">Leading the paint industry with innovation and quality since 2010</p>
+  
+  <div class="info-grid">
+    <div class="card animate-on-scroll">
+      <h3><i class="fas fa-palette card-icon"></i> Our Philosophy</h3>
+      <p>Cymalux is a modern paint company dedicated to bold colors, long-lasting finishes, and beautiful homes. From luxury interiors to rugged exterior coatings, we deliver color that lasts.</p>
+    </div>
+    <div class="card animate-on-scroll">
+      <h3><i class="fas fa-leaf card-icon"></i> Eco-Conscious</h3>
+      <p>Our paints are engineered for Nigerian climates – heat resistant, moisture proof, and eco-conscious. We use sustainable materials without compromising on quality or vibrancy.</p>
+    </div>
+    <div class="card animate-on-scroll">
+      <h3><i class="fas fa-award card-icon"></i> Premium Quality</h3>
+      <p>With over a decade of experience, we've perfected our formulas to provide exceptional coverage, durability, and color retention that stands the test of time and elements.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section-light">
+  <h2 class="section-title">Contact Us</h2>
+  <p class="section-subtitle">Get in touch for consultations, quotes, or color advice</p>
+  
+  <div class="info-grid">
+    <div class="card animate-on-scroll">
+      <h3><i class="fas fa-headset card-icon"></i> Get In Touch</h3>
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +234 803 884 2997</p>
+        <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +234 803 884 2997</p>
+        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> cymaluxresources@yahoo.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> No 6 Redeemed street, white house bus stop, Rukpokwu, Rivers State</p>
+        <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon-Sat: 8am-6pm</p>
+      </div>
+    </div>
+    <div class="card animate-on-scroll">
+      <h3><i class="fas fa-map-marked-alt card-icon"></i> Our Location</h3>
+      <iframe src="https://maps.google.com/maps?q=No+6+Redeemed+street+white+house+bus+stop+Rukpokwu+Rivers+State&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Cylamux Location in Rivers State"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="close-lightbox">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption">
+      <h3 id="lightbox-title">Image Title</h3>
+      <p id="lightbox-desc">Image description</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo-section">
+      <div class="footer-logo">
+        <!-- Updated logo file name for footer -->
+        <img src="logoc.png" alt="Cylamux Paints Logo">
+      </div>
+      <p>Transforming spaces with premium, durable colors that inspire and endure.</p>
+      <div class="footer-social">
+        <!-- Removed Twitter and LinkedIn, kept Facebook, Instagram and WhatsApp -->
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/2348038842997" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <ul style="list-style: none; margin-top: 1rem;">
+        <li><a href="#gallery" style="color: #ccc; text-decoration: none; line-height: 2.2;">Gallery</a></li>
+        <li><a href="#colors" style="color: #ccc; text-decoration: none; line-height: 2.2;">Color Catalog</a></li>
+        <li><a href="#services" style="color: #ccc; text-decoration: none; line-height: 2.2;">Services</a></li>
+        <li><a href="#about" style="color: #ccc; text-decoration: none; line-height: 2.2;">About Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Services</h3>
+      <ul style="list-style: none; margin-top: 1rem;">
+        <li><a href="#" style="color: #ccc; text-decoration: none; line-height: 2.2;">Residential Painting</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none; line-height: 2.2;">Commercial Painting</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none; line-height: 2.2;">Color Consultation</a></li>
+        <li><a href="#" style="color: #ccc; text-decoration: none; line-height: 2.2;">Exterior Coating</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    <p>© 2025 Cylamux Paints. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary);"></i> for color enthusiasts</p>
+  </div>
+</footer>
+
+<script>
+  // Color palette generation with corrected color names
+  const classicColorNames = [
+    "Pure White", "Pearl White", "Ivory", "Vanilla", "Cream", "Buttercream",
+    "Sunshine Yellow", "Lemon Yellow", "Gold", "Amber", "Orange", "Tangerine",
+    "Coral", "Salmon", "Peach", "Apricot", "Terracotta", "Brick Red",
+    "Crimson", "Rose Red", "Dusty Pink", "Blush", "Lavender", "Lilac",
+    "Violet", "Royal Purple", "Indigo", "Navy Blue", "Sky Blue", "Baby Blue",
+    "Turquoise", "Teal", "Mint Green", "Sage Green", "Olive Green", "Forest Green",
+    "Emerald", "Lime Green", "Mustard", "Tan", "Beige", "Chocolate"
+  ];
+  
+  const brickColorNames = [
+    "Burnt Sienna", "Rust Red", "Terracotta", "Adobe", "Brick", "Rust",
+    "Burnt Orange", "Copper", "Sandstone", "Canyon", "Adobe Brown", "Pueblo",
+    "Sienna", "Rustic Brown", "Tuscan", "Mud", "Clay Orange", "Pottery",
+    "Sun-Baked Clay", "Earthen", "Red Clay", "Kiln Red", "Rustic", "Earth"
+  ];
+  
+  // Generate HSL colors for classic palette
+  const classicColors = Array.from({length: 42}, (_, i) => {
+    const hue = i * 8;
+    return `hsl(${hue}, 85%, 55%)`;
+  });
+  
+  const brickColors = [
+    '#5A1F14', '#6E2C00', '#7B241C', '#873600', '#943126', 
+    '#A04000', '#A93226', '#B03A2E', '#B9770E', '#C0392B',
+    '#CA6F1E', '#CD6155', '#D35400', '#D98880', '#E59866',
+    '#E6B0AA', '#784212', '#6F4E37', '#8B5A2B', '#A97142',
+    '#C19A6B', '#B5651D', '#9C640C', '#7E5109'
+  ];
+  
+  function renderColors(colors, colorNames, id) {
+    const element = document.getElementById(id);
+    element.innerHTML = ''; // Clear existing content
+    
+    colors.forEach((color, index) => {
+      const div = document.createElement('div');
+      div.className = 'color-box';
+      div.style.background = color;
+      
+      // Use color name instead of hex code
+      const colorName = colorNames[index] || `Color ${index + 1}`;
+      div.innerHTML = `<span class="color-label">${colorName}</span>`;
+      
+      element.appendChild(div);
+    });
+  }
+  
+  // Render color palettes with names
+  renderColors(classicColors, classicColorNames, 'classic');
+  renderColors(brickColors, brickColorNames, 'brick');
+  
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  // Observe elements for animation
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  
+  // Add click event to color boxes to show color name
+  document.querySelectorAll('.color-box').forEach(box => {
+    box.addEventListener('click', function() {
+      const colorName = this.querySelector('.color-label').textContent;
+      alert(`Color: ${colorName}`);
+    });
+  });
+  
+  // Gallery lightbox functionality
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const closeLightbox = document.getElementById('close-lightbox');
+  
+  // Open lightbox when gallery item is clicked
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const img = this.querySelector('img');
+      const title = this.querySelector('.gallery-overlay h3').textContent;
+      const desc = this.querySelector('.gallery-overlay p').textContent;
+      
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = desc;
+      
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  
+  // Close lightbox
+  closeLightbox.addEventListener('click', function() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+  
+  // Close lightbox when clicking outside the image
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Check if background image loads, add fallback styling if needed
+  window.addEventListener('load', function() {
+    const hero = document.querySelector('.hero');
+    const img = new Image();
+    img.src = 'back.webp';
+    
+    img.onerror = function() {
+      console.log('Background image failed to load, using fallback styling');
+      hero.style.backgroundImage = 'none';
+      hero.style.backgroundColor = '#1A1A2E';
+      hero.style.background = 'linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%)';
+    };
+  });
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
