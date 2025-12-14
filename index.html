@@ -98,13 +98,6 @@
     .paint-letter-4 { color: #06D6A0; }
     .paint-letter-5 { color: #118AB2; }
     .paint-letter-6 { color: #EF476F; }
-    
-    .colors-letter-1 { color: #FF6B6B; }
-    .colors-letter-2 { color: #4ECDC4; }
-    .colors-letter-3 { color: #FFD166; }
-    .colors-letter-4 { color: #06D6A0; }
-    .colors-letter-5 { color: #118AB2; }
-    .colors-letter-6 { color: #EF476F; }
 
     .hero h1 {
       font-family: 'Montserrat', sans-serif;
@@ -358,6 +351,14 @@
       z-index: 2;
       text-align: center;
       word-wrap: break-word;
+    }
+
+    .color-code {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      margin-top: 2px;
+      color: #FFD166;
     }
 
     /* About & Contact */
@@ -650,7 +651,7 @@
   </div>
   
   <div class="hero-content">
-    <h1>CYMALUX 
+    <h1>CYLAMUX 
       <span class="colorful-word">
         <span class="colorful-letter paint-letter-1">P</span>
         <span class="colorful-letter paint-letter-2">A</span>
@@ -775,44 +776,35 @@
   </div>
 </section>
 
-<!-- Classic Colors Section -->
+<!-- Shield Emulsion and Gloss Enamel Section -->
 <section class="section-primary">
-  <h2 class="section-title">42+ Classic 
-    <span class="colorful-word">
-      <span class="colorful-letter colors-letter-1">C</span>
-      <span class="colorful-letter colors-letter-2">O</span>
-      <span class="colorful-letter colors-letter-3">L</span>
-      <span class="colorful-letter colors-letter-4">O</span>
-      <span class="colorful-letter colors-letter-5">R</span>
-      <span class="colorful-letter colors-letter-6">S</span>
-    </span>
-  </h2>
-  <p class="section-subtitle">Our signature collection of timeless hues for every interior</p>
+  <h2 class="section-title">Shield Emulsion & Gloss Enamel</h2>
+  <p class="section-subtitle">Premium quality interior and exterior paints with superior durability</p>
   
   <div class="palette-container">
-    <div class="palette-grid animate-on-scroll" id="classic"></div>
+    <div class="palette-grid animate-on-scroll" id="shield"></div>
   </div>
 </section>
 
-<!-- Brick Colors Section -->
+<!-- Shield Acrylic Textured Finish Section -->
 <section class="section-accent">
-  <h2 class="section-title">24 Brick & Earth Tones</h2>
-  <p class="section-subtitle">Natural and earthy colors perfect for exteriors and accent walls</p>
+  <h2 class="section-title">Shield Acrylic Textured Finish</h2>
+  <p class="section-subtitle">Beautiful textured finishes for unique wall surfaces</p>
   
   <div class="palette-container">
-    <div class="palette-grid animate-on-scroll" id="brick"></div>
+    <div class="palette-grid animate-on-scroll" id="textured"></div>
   </div>
 </section>
 
 <!-- About Section -->
 <section class="section-secondary">
-  <h2 class="section-title">About Cymalux</h2>
+  <h2 class="section-title">About Cylamux</h2>
   <p class="section-subtitle">Leading the paint industry with innovation and quality since 2010</p>
   
   <div class="info-grid">
     <div class="card animate-on-scroll">
       <h3><i class="fas fa-palette card-icon"></i> Our Philosophy</h3>
-      <p>Cymalux is a modern paint company dedicated to bold colors, long-lasting finishes, and beautiful homes. From luxury interiors to rugged exterior coatings, we deliver color that lasts.</p>
+      <p>Cylamux is a modern paint company dedicated to bold colors, long-lasting finishes, and beautiful homes. From luxury interiors to rugged exterior coatings, we deliver color that lasts.</p>
     </div>
     <div class="card animate-on-scroll">
       <h3><i class="fas fa-leaf card-icon"></i> Eco-Conscious</h3>
@@ -902,58 +894,101 @@
 </footer>
 
 <script>
-  // Color palette generation with corrected color names
-  const classicColorNames = [
-    "Pure White", "Pearl White", "Ivory", "Vanilla", "Cream", "Buttercream",
-    "Sunshine Yellow", "Lemon Yellow", "Gold", "Amber", "Orange", "Tangerine",
-    "Coral", "Salmon", "Peach", "Apricot", "Terracotta", "Brick Red",
-    "Crimson", "Rose Red", "Dusty Pink", "Blush", "Lavender", "Lilac",
-    "Violet", "Royal Purple", "Indigo", "Navy Blue", "Sky Blue", "Baby Blue",
-    "Turquoise", "Teal", "Mint Green", "Sage Green", "Olive Green", "Forest Green",
-    "Emerald", "Lime Green", "Mustard", "Tan", "Beige", "Chocolate"
+  // Shield Emulsion & Gloss Enamel Colors
+  const shieldColors = [
+    {name: "Off White", code: "4046", color: "#F5F5F5"},
+    {name: "Sunflower", code: "4055", color: "#FFD700"},
+    {name: "Lilac Haze", code: "8090", color: "#D8BFD8"},
+    {name: "Pale Blue", code: "7081", color: "#AFEEEE"},
+    {name: "Light Green", code: "6070", color: "#90EE90"},
+    {name: "Silver Grey", code: "9093", color: "#C0C0C0"},
+    {name: "Warm White", code: "3033", color: "#F5F5DC"},
+    {name: "Golden Yellow", code: "0003", color: "#FFDF00"},
+    {name: "Rose Pink", code: "1020", color: "#FFC0CB"},
+    {name: "Sky Blue", code: "7082", color: "#87CEEB"},
+    {name: "Leaf Green", code: "6-71", color: "#7CFC00"},
+    {name: "Neutral", code: "9094", color: "#D3D3D3"},
+    {name: "Pale Beige", code: "3034", color: "#F5F5DC"},
+    {name: "Mustard", code: "4056", color: "#FFDB58"},
+    {name: "Rose", code: "1021", color: "#FF007F"},
+    {name: "Light Blue", code: "SS5100", color: "#ADD8E6"},
+    {name: "Ice Grey", code: "8087", color: "#F0F8FF"},
+    {name: "Pale Mushroom", code: "3035", color: "#E6D5B8"},
+    {name: "Orange", code: "0004", color: "#FFA500"},
+    {name: "Tile Red", code: "1023", color: "#B22222"},
+    {name: "Nursery Blue", code: "7083", color: "#89CFF0"},
+    {name: "Apple Green", code: "6072", color: "#8DB600"},
+    {name: "Dove Grey", code: "9095", color: "#696969"},
+    {name: "Cream", code: "3040", color: "#FFFDD0"},
+    {name: "Sand", code: "1703", color: "#F4A460"},
+    {name: "Red Oxide", code: "10224", color: "#8B0000"},
+    {name: "Pacific Blue", code: "7084", color: "#1CA9C9"},
+    {name: "Greengage", code: "5063", color: "#00A86B"},
+    {name: "Ash Grey", code: "9096", color: "#B2BEB5"},
+    {name: "Bluff", code: "3041", color: "#D2B48C"},
+    {name: "Cameo", code: "17-31", color: "#EFBBCC"},
+    {name: "Laterite Red", code: "1710", color: "#CC5533"},
+    {name: "Brilliant Blue", code: "0012", color: "#007FFF"},
+    {name: "National Green", code: "0010", color: "#008000"},
+    {name: "Dark Grey", code: "9097", color: "#A9A9A9"},
+    {name: "Sienna", code: "17-32", color: "#A0522D"},
+    {name: "Post Office Red", code: "0006", color: "#C41E3A"},
+    {name: "Midnight Blue", code: "0013", color: "#191970"},
+    {name: "Rich Brown", code: "3044", color: "#964B00"},
+    {name: "Chocolate", code: "3045", color: "#7B3F00"}
   ];
-  
-  const brickColorNames = [
-    "Burnt Sienna", "Rust Red", "Terracotta", "Adobe", "Brick", "Rust",
-    "Burnt Orange", "Copper", "Sandstone", "Canyon", "Adobe Brown", "Pueblo",
-    "Sienna", "Rustic Brown", "Tuscan", "Mud", "Clay Orange", "Pottery",
-    "Sun-Baked Clay", "Earthen", "Red Clay", "Kiln Red", "Rustic", "Earth"
+
+  // Shield Acrylic Textured Finish Colors
+  const texturedColors = [
+    {name: "Brilliant White", code: "ft 17-00", color: "#FFFFFF"},
+    {name: "Delta Green", code: "ft 17-06", color: "#2E8B57"},
+    {name: "Gossamer", code: "ft 17-12", color: "#F0E68C"},
+    {name: "Salmon Brown", code: "ft 17-18", color: "#E9967A"},
+    {name: "Magnolia", code: "ft 17-10", color: "#F8F4FF"},
+    {name: "Butter Cream", code: "ft 17-07", color: "#FDD7B5"},
+    {name: "Brick Red", code: "ft 17-13", color: "#8B4513"},
+    {name: "Maize", code: "ft 17-25", color: "#FBEC5D"},
+    {name: "Cream", code: "ft 17-02", color: "#FFFDD0"},
+    {name: "Harmattan Grey", code: "ft 17-08", color: "#BEBEBE"},
+    {name: "Tarqua Green", code: "ft 17-14", color: "#008080"},
+    {name: "Sienna", code: "ft 17-32", color: "#A0522D"},
+    {name: "Sand", code: "ft 17-03", color: "#C2B280"},
+    {name: "Bamboo", code: "ft 17-09", color: "#DAa520"},
+    {name: "Casuarina", code: "ft 17-15", color: "#654321"},
+    {name: "Coral Red", code: "ft 17-28", color: "#FF7F50"},
+    {name: "Off White", code: "ft 17-04", color: "#FAF9F6"},
+    {name: "Laterite Red", code: "ft 17-10", color: "#CC5533"},
+    {name: "Abuja Brown", code: "ft 17-16", color: "#8B4513"},
+    {name: "Concorde Grey", code: "ft 17-29", color: "#848482"},
+    {name: "Chocolate", code: "ft 17-05", color: "#7B3F00"},
+    {name: "Coconut Brown", code: "ft 17-11", color: "#964B00"},
+    {name: "Cameo", code: "ft 17-31", color: "#EFBBCC"},
+    {name: "Pale Beige", code: "ft 17-30", color: "#F5F5DC"}
   ];
-  
-  // Generate HSL colors for classic palette
-  const classicColors = Array.from({length: 42}, (_, i) => {
-    const hue = i * 8;
-    return `hsl(${hue}, 85%, 55%)`;
-  });
-  
-  const brickColors = [
-    '#5A1F14', '#6E2C00', '#7B241C', '#873600', '#943126', 
-    '#A04000', '#A93226', '#B03A2E', '#B9770E', '#C0392B',
-    '#CA6F1E', '#CD6155', '#D35400', '#D98880', '#E59866',
-    '#E6B0AA', '#784212', '#6F4E37', '#8B5A2B', '#A97142',
-    '#C19A6B', '#B5651D', '#9C640C', '#7E5109'
-  ];
-  
-  function renderColors(colors, colorNames, id) {
+
+  function renderColors(colorArray, id) {
     const element = document.getElementById(id);
     element.innerHTML = ''; // Clear existing content
     
-    colors.forEach((color, index) => {
+    colorArray.forEach(colorObj => {
       const div = document.createElement('div');
       div.className = 'color-box';
-      div.style.background = color;
+      div.style.background = colorObj.color;
       
-      // Use color name instead of hex code
-      const colorName = colorNames[index] || `Color ${index + 1}`;
-      div.innerHTML = `<span class="color-label">${colorName}</span>`;
+      div.innerHTML = `
+        <span class="color-label">
+          ${colorObj.name}
+          <span class="color-code">${colorObj.code}</span>
+        </span>
+      `;
       
       element.appendChild(div);
     });
   }
   
-  // Render color palettes with names
-  renderColors(classicColors, classicColorNames, 'classic');
-  renderColors(brickColors, brickColorNames, 'brick');
+  // Render color palettes with names and codes
+  renderColors(shieldColors, 'shield');
+  renderColors(texturedColors, 'textured');
   
   // Scroll animation
   const observer = new IntersectionObserver((entries) => {
@@ -967,11 +1002,12 @@
   // Observe elements for animation
   document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
   
-  // Add click event to color boxes to show color name
+  // Add click event to color boxes to show color details
   document.querySelectorAll('.color-box').forEach(box => {
     box.addEventListener('click', function() {
-      const colorName = this.querySelector('.color-label').textContent;
-      alert(`Color: ${colorName}`);
+      const colorName = this.querySelector('.color-label').textContent.split('\n')[0];
+      const colorCode = this.querySelector('.color-code').textContent;
+      alert(`Color: ${colorName}\nCode: ${colorCode}`);
     });
   });
   
