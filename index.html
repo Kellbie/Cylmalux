@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cymalux Paints - Premium Color Solutions</title>
+  <title>Cylamux Paints - Premium Color Solutions</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <style>
@@ -154,6 +154,7 @@
     /* Section Styling */
     section {
       padding: 6rem 5vw;
+      position: relative;
     }
 
     .section-title {
@@ -166,17 +167,7 @@
       display: inline-block;
       left: 50%;
       transform: translateX(-50%);
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 25%;
-      width: 50%;
-      height: 4px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      border-radius: 2px;
+      z-index: 2;
     }
 
     .section-subtitle {
@@ -185,6 +176,8 @@
       color: var(--neutral);
       max-width: 700px;
       margin: 0 auto 3.5rem;
+      position: relative;
+      z-index: 2;
     }
 
     /* Color Background Sections */
@@ -200,8 +193,43 @@
       background: linear-gradient(135deg, #e6fffb 0%, #d1f7f4 100%);
     }
 
-    .section-secondary {
-      background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
+    /* Video Background Section for About */
+    .section-video {
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 5vw;
+      color: white;
+    }
+    
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(1.3); /* Brighter video */
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3); /* Lighter overlay for brighter video */
+      z-index: 1;
+    }
+    
+    .video-section-title {
+      color: black !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .video-section-subtitle {
+      color: rgba(0, 0, 0, 0.9) !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     }
 
     /* Gallery Section - 6x2 Layout */
@@ -386,15 +414,21 @@
       gap: 3rem;
       max-width: 1100px;
       margin: 3rem auto 0;
+      position: relative;
+      z-index: 2;
     }
 
     .card {
-      background: white;
+      background: rgba(255, 255, 255, 0.95); /* More opaque for better readability */
       padding: 2.5rem;
       border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.3);
       transition: transform 0.3s ease;
       border-top: 5px solid var(--primary);
+    }
+    
+    .section-light .card {
+      background: white;
     }
 
     .card:hover {
@@ -415,9 +449,16 @@
       font-size: 1.8rem;
     }
 
+    .card p {
+      color: #000000; /* Black text for better readability */
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
     .contact-info p {
       margin-bottom: 1rem;
       font-size: 1.1rem;
+      color: #000000; /* Black text for better readability */
     }
 
     .contact-info i {
@@ -627,6 +668,11 @@
       .hero p {
         font-size: 1.1rem;
       }
+      
+      /* Optimize video for mobile */
+      .video-background {
+        object-position: center;
+      }
     }
     
     @media (max-width: 480px) {
@@ -649,6 +695,26 @@
         left: 0;
         margin-bottom: 2rem;
       }
+      
+      /* Disable video autoplay on some mobile devices to save data */
+      .video-background {
+        display: none;
+      }
+      
+      .section-video {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      }
+      
+      .video-background.mobile-fallback {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
     }
     
     /* Parallax effect for larger screens */
@@ -670,7 +736,7 @@
   </div>
   
   <div class="hero-content">
-    <h1>CYMALUX 
+    <h1>CYLAMUX 
       <span class="colorful-word">
         <span class="colorful-letter paint-letter-1">P</span>
         <span class="colorful-letter paint-letter-2">A</span>
@@ -815,15 +881,24 @@
   </div>
 </section>
 
-<!-- About Section -->
-<section class="section-secondary">
-  <h2 class="section-title">About Cymalux</h2>
-  <p class="section-subtitle">Leading the paint industry with innovation and quality since 2010</p>
+<!-- About Section with Video Background -->
+<section class="section-video" id="about">
+  <!-- Video Background -->
+  <video class="video-background" autoplay muted loop playsinline>
+    <source src="vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <!-- Light Overlay for better video visibility -->
+  <div class="video-overlay"></div>
+  
+  <h2 class="section-title video-section-title" style="color: black;">About Cylamux</h2>
+  <p class="section-subtitle video-section-subtitle" style="color: black;">Leading the paint industry with innovation and quality since 2010</p>
   
   <div class="info-grid">
     <div class="card animate-on-scroll">
       <h3><i class="fas fa-palette card-icon"></i> Our Philosophy</h3>
-      <p>Cymalux is a modern paint company dedicated to bold colors, long-lasting finishes, and beautiful homes. From luxury interiors to rugged exterior coatings, we deliver color that lasts.</p>
+      <p>Cylamux is a modern paint company dedicated to bold colors, long-lasting finishes, and beautiful homes. From luxury interiors to rugged exterior coatings, we deliver color that lasts.</p>
     </div>
     <div class="card animate-on-scroll">
       <h3><i class="fas fa-leaf card-icon"></i> Eco-Conscious</h3>
@@ -908,7 +983,7 @@
   </div>
   
   <div class="copyright">
-    <p>© 2025 Cymalux Paints. All Rights Reserved.</p>
+    <p>© 2025 Cylamux Paints. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary);"></i> for color enthusiasts</p>
   </div>
 </footer>
 
@@ -1019,6 +1094,16 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        
+        // Play video when About section is in view (for mobile)
+        if (entry.target.id === 'about' || entry.target.classList.contains('section-video')) {
+          const video = document.querySelector('.video-background');
+          if (video) {
+            video.play().catch(e => {
+              console.log("Video autoplay prevented:", e);
+            });
+          }
+        }
       }
     });
   }, { threshold: 0.1 });
@@ -1084,6 +1169,28 @@
       hero.style.backgroundColor = '#1A1A2E';
       hero.style.background = 'linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%)';
     };
+    
+    // Check if video loads
+    const video = document.querySelector('.video-background');
+    const videoSource = document.createElement('source');
+    videoSource.src = 'vid.mp4';
+    videoSource.type = 'video/mp4';
+    
+    video.addEventListener('error', function() {
+      console.log('Video failed to load, using gradient fallback');
+      const aboutSection = document.querySelector('.section-video');
+      aboutSection.style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)';
+      aboutSection.querySelector('.video-background').style.display = 'none';
+    });
+    
+    // Try to play video
+    if (video) {
+      video.play().catch(function(error) {
+        console.log("Video autoplay failed:", error);
+        // If autoplay fails, show a play button (optional)
+        // You could add a play button overlay here if needed
+      });
+    }
   });
   
   // Smooth scrolling for anchor links
@@ -1101,6 +1208,37 @@
         });
       }
     });
+  });
+  
+  // Mobile detection and video handling
+  function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+  }
+  
+  if (isMobileDevice()) {
+    // On mobile, we might need to handle video playback differently
+    const video = document.querySelector('.video-background');
+    if (video) {
+      video.setAttribute('playsinline', '');
+      video.setAttribute('muted', '');
+      video.setAttribute('autoplay', '');
+    }
+  }
+  
+  // Brighten video if it's too dark
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.video-background');
+    if (video) {
+      // Try to adjust video brightness with CSS filter
+      video.style.filter = 'brightness(1.3)';
+      
+      // Check if video is actually playing and visible
+      setTimeout(function() {
+        if (video.readyState >= 2) { // HAVE_CURRENT_DATA or more
+          console.log('Video is loaded and ready');
+        }
+      }, 1000);
+    }
   });
 </script>
 
